@@ -4,6 +4,9 @@ from process.process import proc
 
 class Eigenfish:
     def __init__(self, shape, process=None, classifier=None):
+        """
+        :param shape: (Width, Height) of pre-flattened images
+        """
         self.process = (lambda img_mat, shape=shape: proc(img_mat, shape)
                         if process is None else process)
         self.classifier = Classifier() if classifier is None else classifier
