@@ -4,8 +4,8 @@ from process.process import proc
 
 class Eigenfish:
     def __init__(self, shape, process=None, classifier=None):
-        self.process = proc if process is None else process
-        self.process = lambda img_mat, shape=shape: self.process(img_mat, shape)
+        self.process = (lambda img_mat, shape=shape: proc(img_mat, shape)
+                        if process is None else process)
         self.classifier = Classifier() if classifier is None else classifier
 
     def train(self, img_mat, labels):
@@ -15,6 +15,6 @@ class Eigenfish:
         return self.classifier.classify(self.process(img_mat))
 
     def cross_validate(self, img_mat, labels):
-        predicted = self.classifier.classify(proc(img_mat))
-        return (sum([0 if abs(i - j) else 0
+        predicted = self.classifier.classify(self.process(img_mat))
+        return (sum([0 if i != j else 1
                      for i, j in zip(labels, predicted)]) / len(labels))
