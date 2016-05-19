@@ -4,18 +4,18 @@ eigenfish.process package
 Submodules
 ----------
 
-eigenfish.process.process module
---------------------------------
+eigenfish.process.math module
+-----------------------------
 
-.. automodule:: eigenfish.process.process
+.. automodule:: eigenfish.process.math
     :members:
     :undoc-members:
     :show-inheritance:
 
-eigenfish.process.rpca module
------------------------------
+eigenfish.process.process module
+--------------------------------
 
-.. automodule:: eigenfish.process.rpca
+.. automodule:: eigenfish.process.process
     :members:
     :undoc-members:
     :show-inheritance:

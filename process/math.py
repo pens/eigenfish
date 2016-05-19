@@ -4,6 +4,11 @@ import scipy.sparse.linalg
 
 
 def rpca(image_mat):
+    """
+    Performs Robust Principle Component Analysis on image_mat.
+
+    :returns: Low-rank, sparse parts of image_mat
+    """
     m = image_mat.shape[0]
     lam = 1 / math.sqrt(m)
     tol = 1e-7
@@ -43,6 +48,15 @@ def rpca(image_mat):
 
 
 def fft2_series(img_mat, shape):
+    """
+    For each column in img_mat, img_mat[:, i] the fft2 modes are extracted and
+    placed into the corresponding column of the returned matrix.
+
+    :param img_mat: Matrix to process.
+    :param shape: Original (width, height) of each column of img_mat.
+    :returns: New numpy.ndarray matrix, where return[:, i] is the fft2 modes of
+        img_mat[:, i].
+    """
     fourier = numpy.empty(img_mat.shape)
     for i in range(img_mat.shape[1]):
         fourier[:, i] = (

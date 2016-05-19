@@ -28,6 +28,14 @@ eigenfish.test module
     :undoc-members:
     :show-inheritance:
 
+eigenfish.util module
+---------------------
+
+.. automodule:: eigenfish.util
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 
 Module contents
 ---------------
