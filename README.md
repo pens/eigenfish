@@ -12,4 +12,4 @@ Additionally, `ef.cross_validate(labeled_image_matrix, labels)` can be called
 after `ef.train(...)` on a different set of labelled images to check accuracy.
 
 ##Copyright
-Eigenfish is free and open-source under the MIT License. See LICENSE.
+Eigenfish is free and open-source software made available under the MIT License. See LICENSE.

@@ -1,5 +1,6 @@
 from sklearn import preprocessing
 from sklearn import svm
+from sklearn.externals import joblib
 
 
 class Classifier:
@@ -11,3 +12,9 @@ class Classifier:
 
     def classify(self, data):
         return self.svc.predict(preprocessing.scale(data.T))
+
+    def load(self, filename):
+        self.svc = joblib.load(filename)
+
+    def save(self, filename):
+        joblib.dump(self.svc, filename)

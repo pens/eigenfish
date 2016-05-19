@@ -40,3 +40,11 @@ def rpca(image_mat):
             break
 
     return a_hat, e_hat
+
+
+def fft2_series(img_mat, shape):
+    fourier = numpy.empty(img_mat.shape)
+    for i in range(img_mat.shape[1]):
+        fourier[:, i] = (
+            numpy.abs(numpy.fft.fft2(img_mat[:, i].reshape(shape))).flatten())
+    return fourier
