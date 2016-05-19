@@ -1,7 +1,6 @@
 #TODO
 - Enable special members (e.g. `__init__`) in Sphinx documentation
 - Add copyright headers
-- Fix Sphinx with package-internal imports
 - Improve performance of CPU RPCA
 - Add GPU code
 
