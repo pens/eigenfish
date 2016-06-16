@@ -15,8 +15,8 @@ class Eigenfish:
         :param classifier: If not None, custom Classifier, else default.
         """
         self.shape = shape
-        self.processor = Processor() if processor is None else processor
-        self.classifier = Classifier() if classifier is None else classifier
+        self.processor = Processor() if processor is None else processor()
+        self.classifier = Classifier() if classifier is None else classifier()
         if training_file is not None:
             self.load(training_file)
 
@@ -54,10 +54,8 @@ class Eigenfish:
             img_mat[:, i].
         :return: Percent of labels that are the same.
         """
-        pred = self.classifier.classify(self.processor.process(img_mat,
-                                                               self.shape))
-        return (sum([0 if i != j else 1
-                     for i, j in zip(label_arr, pred)]) / len(label_arr))
+        return self.classifier.cross_validate(
+            self.processor.process(img_mat, self.shape), label_arr)
 
     def load(self, filename):
         """

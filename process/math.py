@@ -31,7 +31,8 @@ def rpca(image_mat):
                  numpy.minimum(temp + lam / mu, 0))
 
         u, sigma, vt = (scipy.sparse.linalg.svds(
-            numpy.asarray(image_mat - e_hat + 1 / mu * y)))
+            numpy.asarray(image_mat - e_hat + 1 / mu * y),
+            min(6, image_mat.shape[1]-2)))
         svp = (sigma > 1 / mu).sum()
 
         a_hat = (u[:, -svp:].dot(numpy.diag(sigma[-svp:] - 1 / mu)).dot(
