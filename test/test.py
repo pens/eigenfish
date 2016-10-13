@@ -1,11 +1,14 @@
+import numpy
+import os
+import shutil
+import sys
+import unittest
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+import util
 from eigenfish import *
 from process.process import *
 from classify.classify import *
-import numpy
-import os
-import util
-import unittest
-import shutil
 
 
 class EmptyProcessor(Processor):
@@ -57,14 +60,13 @@ class TestEigenfish(unittest.TestCase):
     def test_cross_validate(self):
         self.ef.train(self.mat, self.labels)
         pct_correct = self.ef.cross_validate(self.test_mat, self.test_labels)
-        self.assertEquals(pct_correct, 1.0)
+        self.assertEqual(pct_correct, 1.0)
 
     def test_save_load(self):
         self.ef.train(self.mat, self.labels)
         res1 = self.ef.classify(self.test_mat)
 
         self.ef.save('model/temp.ef')
-        del self.ef
         self.ef = Eigenfish(self.shape)
         self.ef.load('model/temp.ef')
 
@@ -72,7 +74,6 @@ class TestEigenfish(unittest.TestCase):
         for i in range(len(res1)):
             self.assertEqual(res1[i], res2[i],
                              'Results not equal after save/load')
-        del self.ef
         ef = Eigenfish(self.shape, 'model/temp.ef')
         res3 = ef.classify(self.test_mat)
         for i in range(len(res1)):
@@ -117,14 +118,13 @@ class TestClassify(unittest.TestCase):
         self.classifier.train(self.mat, self.labels)
         pct_correct = (
             self.classifier.cross_validate(self.test_mat, self.test_labels))
-        self.assertEquals(pct_correct, 1.0)
+        self.assertEqual(pct_correct, 1.0)
 
     def test_save_load(self):
         self.classifier.train(self.mat, self.labels)
         res1 = self.classifier.classify(self.test_mat)
 
         self.classifier.save('model/example.ef')
-        del self.classifier
         self.classifier = Classifier()
         self.classifier.load('model/example.ef')
 
@@ -150,3 +150,6 @@ class TestProcess(unittest.TestCase):
 
     def test_fft2_series(self):
         fft = fft2_series(self.mat, self.shape)
+
+if __name__ == "__main__":
+    unittest.main()

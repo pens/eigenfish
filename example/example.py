@@ -1,7 +1,9 @@
+import os
+import shutil
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import eigenfish
 import util
-import shutil
-
 
 if __name__ == "__main__":
     print("Loading training images")

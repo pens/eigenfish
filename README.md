@@ -30,12 +30,33 @@ through `Eigenfish.save(filename)` and `Eigenfish.load(filename)`.
 Custom classifiers and preprocessors can be used with Eigenfish by passing
 classes to the `processor` and `classifier` arguments in the constructor
 `Eigenfish()`.
-See process/process.py and classify/classify.py for the defaults.
+See `process/process.py` and `classify/classify.py` for the defaults.
 
 ##Documentation
-Documentation is available under eigenfish/doc/_build/html/index.html.
+Documentation is available under `eigenfish/doc/_build/html/index.html.`
 
-Documentation can be rebuilt by calling `make html` from the root directory.
+The documentation generator is available in `doc/`. Documentation can be rebuilt
+by running the following from the root directory:
+```
+cd doc
+make html
+```
+
+##Unit tests
+Unit tests are in the `test/` subdirectory. To run the run tests, do the
+following from the root directory:
+```
+cd test
+python3 tests.py
+```
+
+##Example
+The example script shows the general use of the Eigenfish package. The package
+can be run with the following commands from the root directory:
+```
+cd example
+python3 example.y
+```
 
 ##Copyright
 Eigenfish is free and open-source software made available under the MIT License.
