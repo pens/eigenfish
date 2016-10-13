@@ -1,5 +1,5 @@
 # Eigenfish
-Eigenfish is a Python package for detecting fish in an images.
+Eigenfish is a Python 3 package for detecting fish in an images.
 
 ##TODO
 - Multiclass ML
@@ -36,27 +36,15 @@ See `process/process.py` and `classify/classify.py` for the defaults.
 Documentation is available under `eigenfish/doc/_build/html/index.html.`
 
 The documentation generator is available in `doc/`. Documentation can be rebuilt
-by running the following from the root directory:
-```
-cd doc
-make html
-```
+by running `make html` from `doc/`.
 
 ##Unit tests
-Unit tests are in the `test/` subdirectory. To run the run tests, do the
-following from the root directory:
-```
-cd test
-python3 tests.py
-```
+Unit tests are in the `test/` subdirectory. To run the tests, call
+`python3 tests.py` from `test/`.
 
 ##Example
 The example script shows the general use of the Eigenfish package. The package
-can be run with the following commands from the root directory:
-```
-cd example
-python3 example.y
-```
+can be run with `python3 example.py` from `example/`.
 
 ##Copyright
 Eigenfish is free and open-source software made available under the MIT License.
