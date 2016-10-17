@@ -1,5 +1,7 @@
 # Eigenfish
 Eigenfish is a Python 3 package for detecting fish in an images.
+*Requires python3, scipy, numpy and scikit-learn. sphinx also required to 
+build documentation.*
 
 ##TODO
 - Multiclass ML
