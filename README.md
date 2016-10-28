@@ -6,6 +6,7 @@ build documentation.*
 ##TODO
 - Multiclass ML
 - GPU Support
+- Switch to unittest mock
 
 ##Usage
 *A full example script is available at example/example.py.*
