@@ -7,8 +7,8 @@ import util
 
 if __name__ == "__main__":
     print("Loading training images")
-    fish_imgs = (["images/fish/%d.jpg" % i for i in range(0, 15)] +
-                 ["images/nofish/%d.jpg" % i for i in range(0, 15)])
+    fish_imgs = (["example/images/fish/%d.jpg" % i for i in range(0, 15)] +
+                 ["example/images/nofish/%d.jpg" % i for i in range(0, 15)])
     fish_mat, shape = util.load_img_mat(fish_imgs)
 
     print("Training model")
@@ -17,8 +17,8 @@ if __name__ == "__main__":
                         ["no fish" for i in range(0, 15)]))
 
     print("Loading test images")
-    test_imgs = (["images/fish/%d.jpg" % i for i in range(15, 20)] +
-                 ["images/nofish/%d.jpg" % i for i in range(15, 20)])
+    test_imgs = (["example/images/fish/%d.jpg" % i for i in range(15, 20)] +
+                 ["example/images/nofish/%d.jpg" % i for i in range(15, 20)])
     test_mat = util.load_img_mat(test_imgs)[0]
 
     print("Classifying test images")

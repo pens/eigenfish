@@ -42,11 +42,11 @@ by running `make html` from `doc/`.
 
 ##Unit tests
 Unit tests are in the `test/` subdirectory. To run the tests, call
-`python3 tests.py` from `test/`.
+`python3 -m unittest test/test.py`.
 
 ##Example
 The example script shows the general use of the Eigenfish package. The package
-can be run with `python3 example.py` from `example/`.
+can be run with `python3 example/example.py`.
 
 ##Copyright
 Eigenfish is free and open-source software made available under the MIT License.
