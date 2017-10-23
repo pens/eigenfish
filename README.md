@@ -3,7 +3,7 @@ Eigenfish is a Python 3 package for detecting fish in an images.
 *Requires python3, scipy, numpy and scikit-learn. sphinx also required to 
 build documentation.*
 
-##Usage
+## Usage
 *A full example script is available at example/example.py.*
 
 Eigenfish is used as follows:
@@ -30,20 +30,20 @@ classes to the `processor` and `classifier` arguments in the constructor
 `Eigenfish()`.
 See `process/process.py` and `classify/classify.py` for the defaults.
 
-##Documentation
+## Documentation
 Documentation is available under `eigenfish/doc/_build/html/index.html.`
 
 The documentation generator is available in `doc/`. Documentation can be rebuilt
 by running `make html` from `doc/`.
 
-##Unit tests
+## Unit tests
 Unit tests are in the `test/` subdirectory. To run the tests, call
 `python3 -m unittest test/test.py`.
 
-##Example
+## Example
 The example script shows the general use of the Eigenfish package. The package
 can be run with `python3 example/example.py`.
 
-##Copyright
+## Copyright
 Eigenfish is free and open-source software made available under the MIT License.
 See LICENSE.
