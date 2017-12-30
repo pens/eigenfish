@@ -46,8 +46,9 @@ can be run with `python3 example/example.py`.
 
 ## Copyright
 Eigenfish is free and open-source software made available under the MIT License.
-See LICENSE.
+See [LICENSE file](LICENSE) for details. 
 
 ## References
 
-[1] Candès, E. J., Li, X., Ma, Y., and Wright, J. Robust principal component analysis? Journal of the ACM, 58(3):11:1-11:37, 2011.
+[1] Candès, E. J., Li, X., Ma, Y., and Wright, J. Robust principal component analysis? Journal of the ACM, 58(3):11:1-11:37, 2011.<br />
+[2] Huang P.X., Boom B.J., Fisher R.B. (2013) Underwater Live Fish Recognition Using a Balance-Guaranteed Optimized Tree. In: Lee K.M., Matsushita Y., Rehg J.M., Hu Z. (eds) Computer Vision – ACCV 2012. ACCV 2012. Lecture Notes in Computer Science, vol 7724. Springer, Berlin, Heidelberg
