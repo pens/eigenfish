@@ -47,3 +47,7 @@ can be run with `python3 example/example.py`.
 ## Copyright
 Eigenfish is free and open-source software made available under the MIT License.
 See LICENSE.
+
+## References
+
+[1] Candès, E. J., Li, X., Ma, Y., and Wright, J. Robust principal component analysis? Journal of the ACM, 58(3):11:1-11:37, 2011.
