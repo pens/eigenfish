@@ -1,0 +1,182 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>eigenfish.process package &#8212; Eigenfish 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="eigenfish.classify package" href="eigenfish.classify.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="eigenfish-process-package">
+<h1>eigenfish.process package<a class="headerlink" href="#eigenfish-process-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-eigenfish.process.math">
+<span id="eigenfish-process-math-module"></span><h2>eigenfish.process.math module<a class="headerlink" href="#module-eigenfish.process.math" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="eigenfish.process.math.fft2_series">
+<code class="descclassname">eigenfish.process.math.</code><code class="descname">fft2_series</code><span class="sig-paren">(</span><em>img_mat</em>, <em>shape</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/eigenfish/process/math.html#fft2_series"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eigenfish.process.math.fft2_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each column in img_mat, img_mat[:, i] the fft2 modes are extracted and
+placed into the corresponding column of the returned matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>img_mat</strong> – Matrix to process.</li>
+<li><strong>shape</strong> – Original (width, height) of each column of img_mat.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">New numpy.ndarray matrix, where return[:, i] is the fft2 modes of
+img_mat[:, i].</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="eigenfish.process.math.rpca">
+<code class="descclassname">eigenfish.process.math.</code><code class="descname">rpca</code><span class="sig-paren">(</span><em>image_mat</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/eigenfish/process/math.html#rpca"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eigenfish.process.math.rpca" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs Robust Principle Component Analysis on image_mat.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Low-rank, sparse parts of image_mat</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-eigenfish.process.process">
+<span id="eigenfish-process-process-module"></span><h2>eigenfish.process.process module<a class="headerlink" href="#module-eigenfish.process.process" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="eigenfish.process.process.Processor">
+<em class="property">class </em><code class="descclassname">eigenfish.process.process.</code><code class="descname">Processor</code><a class="reference internal" href="_modules/eigenfish/process/process.html#Processor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eigenfish.process.process.Processor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="eigenfish.process.process.Processor.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>img_mat</em>, <em>shape</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/eigenfish/process/process.html#Processor.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#eigenfish.process.process.Processor.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process img_mat to prepare it for training/classification.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>img_mat</strong> – Matrix with each column a flattened image.</li>
+<li><strong>shape</strong> – Original (width, height) of each image.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-eigenfish.process">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-eigenfish.process" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">eigenfish.process package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-eigenfish.process.math">eigenfish.process.math module</a></li>
+<li><a class="reference internal" href="#module-eigenfish.process.process">eigenfish.process.process module</a></li>
+<li><a class="reference internal" href="#module-eigenfish.process">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="eigenfish.html">eigenfish package</a><ul>
+      <li>Previous: <a href="eigenfish.classify.html" title="previous chapter">eigenfish.classify package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/eigenfish.process.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Seth Pendergrass, Zhe Bai and Steven Brunton.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/eigenfish.process.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
