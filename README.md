@@ -1,14 +1,19 @@
 # Eigenfish
-Eigenfish is a Python 3 package for detecting fish in an images.
-*Requires python3, scipy, numpy and scikit-learn. sphinx also required to 
-build documentation.*
+Eigenfish is a Python 3 package for detecting fish in an image sequence.
+
+## Requirements
+Requires *Python 3*.
+To install, run `pip3 install -r requirements.txt` from the root directory.
 
 ## Usage
-*A full example script is available at example/example.py.*
+*For a detailed functional example, please see `example.py`.*
+*Documentation is available at [docs/_build/html/index.html](docs/_build/html/index.html).*
 
-Eigenfish is used as follows:
+Eigenfish must be trained before it is able to classify an images as follows:
 ```
-ef = Eigenfish(image_shape)
+import eigenfish
+
+ef = eigenfish.Eigenfish(image_shape)
 ef.train(image_matrix, labels)
 result = ef.classify(unlabeled_image_matrix)
 ```
@@ -22,33 +27,32 @@ where:
 Additionally, `ef.cross_validate(labeled_image_matrix, labels)` can be called
 after `ef.train(...)` to check accuracy of the trained model.
 
+`util.py` contains the helper function load_img_mat to make loading images easier.
+
+### Save/Load
 Eigenfish has support for saving a trained classifier and loading it later,
 through `Eigenfish.save(filename)` and `Eigenfish.load(filename)`.
 
+### Customization
 Custom classifiers and preprocessors can be used with Eigenfish by passing
 classes to the `processor` and `classifier` arguments in the constructor
 `Eigenfish()`.
 See `process/process.py` and `classify/classify.py` for the defaults.
 
-## Documentation
-Documentation is available under `eigenfish/doc/_build/html/index.html.`
+### Documentation
+Run `make html` from the `docs/` directory.
 
-The documentation generator is available in `doc/`. Documentation can be rebuilt
-by running `make html` from `doc/`.
+### Example
+Run `python3 example.py` from the root directory.
 
-## Unit tests
-Unit tests are in the `test/` subdirectory. To run the tests, call
-`python3 -m unittest test/test.py`.
-
-## Example
-The example script shows the general use of the Eigenfish package. The package
-can be run with `python3 example/example.py`.
+### Unit Tests
+Run `python3 test.py` from the root directory.
 
 ## Copyright
 Eigenfish is free and open-source software made available under the MIT License.
-See [LICENSE file](LICENSE) for details. 
+See [LICENSE file](LICENSE) for details.
 
 ## References
+[1] Candès, E. J., Li, X., Ma, Y., and Wright, J. Robust principal component analysis? Journal of the ACM, 58(3):11:1-11:37, 2011.
 
-[1] Candès, E. J., Li, X., Ma, Y., and Wright, J. Robust principal component analysis? Journal of the ACM, 58(3):11:1-11:37, 2011.<br />
 [2] Huang, P.X., Boom, B.J., and Fisher, R.B., Underwater live fish recognition using a balance-guaranteed optimized tree, In Computer Vision ACCV 2012, Lecture Notes in Computer Science Volume 7724, pp. 422- 433, Springer Berlin Heidelberg, 2013.
