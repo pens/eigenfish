@@ -1,5 +1,5 @@
 import numpy
-import scipy.misc
+import imageio
 
 
 def load_img_mat(files):
@@ -11,8 +11,11 @@ def load_img_mat(files):
         resolution.
     :return: Numpy.ndarray matrix with each column a flattened images.
     """
-    shape = scipy.misc.imread(files[0], True).shape
+    shape = imageio.imread(files[0]).shape
+    # Input must be single channel grayscale
+    # TODO apply automatic conversion (flattening)
+    assert(len(shape) == 2)
     img_mat = numpy.empty((shape[0] * shape[1], len(files)))
     for i, file in enumerate(files):
-        img_mat[:, i] = scipy.misc.imread(file, True).flatten()
+        img_mat[:, i] = imageio.imread(file).flatten()
     return img_mat, shape
