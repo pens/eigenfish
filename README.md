@@ -6,7 +6,7 @@ Requires *Python 3*.
 To install, run `pip3 install -r requirements.txt` from the root directory.
 
 ## Usage
-*For a detailed functional example, please see `example.py`.*
+*For a detailed functional example, please see [example.py](example.py).*
 *Documentation is available at [docs/_build/html/index.html](docs/_build/html/index.html).*
 
 Eigenfish must be trained before it is able to classify an images as follows:
