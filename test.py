@@ -8,6 +8,7 @@ from classify.classify import *
 from util import *
 
 
+#TODO fix occasional ARPACK errors
 class EmptyProcessor(Processor):
     def process(self, img_mat, shape):
         return img_mat
