@@ -2,10 +2,10 @@ import numpy
 import os
 import shutil
 import unittest
-import util
 from eigenfish import *
 from process.process import *
 from classify.classify import *
+from util import *
 
 
 class EmptyProcessor(Processor):
@@ -43,10 +43,10 @@ class TestEigenfish(unittest.TestCase):
         self.test_labels = (["zeroes" for i in range(3)] +
                             ["ones" for i in range(3)])
         self.ef = Eigenfish(self.shape)
-        os.mkdir("test/model/")
+        os.mkdir("test/")
 
     def tearDown(self):
-        shutil.rmtree("test/model/", True)
+        shutil.rmtree("test/")
 
     def test_train_classify(self):
         self.ef.train(self.mat, self.labels)
@@ -63,15 +63,15 @@ class TestEigenfish(unittest.TestCase):
         self.ef.train(self.mat, self.labels)
         res1 = self.ef.classify(self.test_mat)
 
-        self.ef.save('test/model/temp.pkl')
+        self.ef.save('test/temp.pkl')
         self.ef = Eigenfish(self.shape)
-        self.ef.load('test/model/temp.pkl')
+        self.ef.load('test/temp.pkl')
 
         res2 = self.ef.classify(self.test_mat)
         for i in range(len(res1)):
             self.assertEqual(res1[i], res2[i],
                              'Results not equal after save/load')
-        ef = Eigenfish(self.shape, 'test/model/temp.pkl')
+        ef = Eigenfish(self.shape, 'test/temp.pkl')
         res3 = ef.classify(self.test_mat)
         for i in range(len(res1)):
             self.assertEqual(res1[i], res3[i],
@@ -84,8 +84,8 @@ class TestEigenfish(unittest.TestCase):
         self.assertEqual(["none"], res)
 
     def test_load_img_mat(self):
-        filenames = ["test/data/%d.jpg" % i for i in range(4)]
-        img_mat, shape = util.load_img_mat(filenames)
+        filenames = ["test_data/%d.jpg" % i for i in range(4)]
+        img_mat, shape = load_img_mat(filenames)
         self.assertEqual(img_mat.shape, (shape[0] * shape[1], 4))
 
 
@@ -100,10 +100,10 @@ class TestClassify(unittest.TestCase):
         self.test_labels = (["zeroes" for i in range(3)] +
                             ["ones" for i in range(3)])
         self.classifier = Classifier()
-        os.mkdir("test/model/")
+        os.mkdir("test/")
 
     def tearDown(self):
-        shutil.rmtree("test/model", True)
+        shutil.rmtree("test/")
 
     def test_train_classify(self):
         self.classifier.train(self.mat, self.labels)
@@ -121,9 +121,9 @@ class TestClassify(unittest.TestCase):
         self.classifier.train(self.mat, self.labels)
         res1 = self.classifier.classify(self.test_mat)
 
-        self.classifier.save('test/model/example.pkl')
+        self.classifier.save('test/temp.pkl')
         self.classifier = Classifier()
-        self.classifier.load('test/model/example.pkl')
+        self.classifier.load('test/temp.pkl')
 
         res2 = self.classifier.classify(self.test_mat)
         for i in range(len(res1)):
@@ -147,3 +147,6 @@ class TestProcess(unittest.TestCase):
 
     def test_fft2_series(self):
         fft = fft2_series(self.mat, self.shape)
+
+if __name__ == "__main__":
+    unittest.main()
